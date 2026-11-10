@@ -282,7 +282,7 @@ function InventoryContent() {
         {hasActiveFilters && (
           <div className="flex items-center justify-between pt-3 text-xs text-neutral-400">
             <span>
-              Showing {filteredCars.length} of {CARS_DATA.length} vehicles
+              Filtered: {filteredCars.length} matches found
             </span>
             <button
               type="button"
@@ -296,9 +296,40 @@ function InventoryContent() {
         )}
       </div>
 
-      {/* Inventory Cars Grid */}
+      {/* Results Count & Inventory Status Bar with Generous Separation */}
+      <div className="mt-6 mb-8 pt-4 pb-2 border-t border-neutral-800/80 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+        <div className="flex items-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+          <span className="text-neutral-300 font-medium text-xs sm:text-sm">
+            Showing <strong className="text-white font-bold">{filteredCars.length}</strong> available vehicle{filteredCars.length === 1 ? "" : "s"}
+            {hasActiveFilters && (
+              <span className="text-neutral-400 font-normal ml-1.5">
+                (filtered from {CARS_DATA.length} total)
+              </span>
+            )}
+          </span>
+        </div>
+
+        <div className="flex items-center gap-3 text-xs text-neutral-400">
+          <span className="hidden sm:inline-block text-neutral-500 font-mono">
+            Accra &bull; Kumasi &bull; Tema
+          </span>
+          {hasActiveFilters && (
+            <button
+              type="button"
+              onClick={handleReset}
+              className="inline-flex items-center gap-1 text-emerald-400 hover:text-emerald-300 transition-colors font-medium cursor-pointer"
+            >
+              <RotateCcw className="w-3 h-3" />
+              <span>Reset All Filters</span>
+            </button>
+          )}
+        </div>
+      </div>
+
+      {/* Inventory Cars Grid with Elevated Separation */}
       {paginatedCars.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-6 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 relative z-10">
           {paginatedCars.map((car) => (
             <CarCard key={car.id} car={car} />
           ))}

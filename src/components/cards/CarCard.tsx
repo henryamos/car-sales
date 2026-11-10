@@ -149,14 +149,16 @@ export function CarCard({ car }: CarCardProps) {
           </div>
         )}
 
-        {/* Multi-photo Progress Line */}
+        {/* Multi-photo Subdued Indicator Dots (Reduced Visual Weight) */}
         {images.length > 1 && (
-          <div className="absolute bottom-2.5 left-3 right-16 flex items-center gap-1 z-10 pointer-events-none">
+          <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 z-10 pointer-events-none">
             {images.map((_, idx) => (
               <div
                 key={idx}
-                className={`h-0.5 flex-1 rounded-full transition-all duration-300 ${
-                  idx === activeIdx ? "bg-white" : "bg-black/60"
+                className={`rounded-full transition-all duration-300 ${
+                  idx === activeIdx
+                    ? "w-4 h-1 bg-white/90 shadow-sm"
+                    : "w-1 h-1 bg-white/35"
                 }`}
               />
             ))}
@@ -169,8 +171,8 @@ export function CarCard({ car }: CarCardProps) {
         {/* Title, Trim, & Location */}
         <div className="flex flex-col gap-1.5">
           {/* Location Meta */}
-          <div className="flex items-center gap-1 text-[11px] text-neutral-400 font-medium">
-            <MapPin className="w-3 h-3 text-neutral-500 shrink-0" />
+          <div className="flex items-center gap-1.5 text-xs text-neutral-400 font-medium">
+            <MapPin className="w-3.5 h-3.5 text-emerald-400/80 shrink-0" />
             <span>{locationText}</span>
           </div>
 
@@ -184,25 +186,25 @@ export function CarCard({ car }: CarCardProps) {
             {car.trim}
           </p>
 
-          {/* 3. Upgraded Specifications Row: Larger, More Legible Typography & Clean Spacing */}
-          <div className="grid grid-cols-3 gap-2 pt-2.5">
-            <div className="px-2.5 py-1.5 rounded-lg bg-neutral-900 border border-neutral-800/90 flex items-center gap-1.5 truncate">
+          {/* 3. Upgraded Specifications Row: Increased Typography & Enhanced Readability */}
+          <div className="grid grid-cols-3 gap-2 pt-2">
+            <div className="px-2.5 py-2 rounded-xl bg-neutral-900/90 border border-neutral-800/90 flex items-center justify-center gap-1.5 truncate">
               <Gauge className="w-3.5 h-3.5 text-neutral-400 shrink-0" />
-              <span className="text-xs font-medium text-neutral-200 truncate">
+              <span className="text-xs sm:text-[13px] font-semibold text-neutral-100 truncate">
                 {car.mileageKm === 0 ? "0 km" : `${formatNumber(car.mileageKm)} km`}
               </span>
             </div>
 
-            <div className="px-2.5 py-1.5 rounded-lg bg-neutral-900 border border-neutral-800/90 flex items-center gap-1.5 truncate">
+            <div className="px-2.5 py-2 rounded-xl bg-neutral-900/90 border border-neutral-800/90 flex items-center justify-center gap-1.5 truncate">
               <Fuel className="w-3.5 h-3.5 text-neutral-400 shrink-0" />
-              <span className="text-xs font-medium text-neutral-200 truncate">
+              <span className="text-xs sm:text-[13px] font-semibold text-neutral-100 truncate">
                 {car.fuelType}
               </span>
             </div>
 
-            <div className="px-2.5 py-1.5 rounded-lg bg-neutral-900 border border-neutral-800/90 flex items-center gap-1.5 truncate">
+            <div className="px-2.5 py-2 rounded-xl bg-neutral-900/90 border border-neutral-800/90 flex items-center justify-center gap-1.5 truncate">
               <Cog className="w-3.5 h-3.5 text-neutral-400 shrink-0" />
-              <span className="text-xs font-medium text-neutral-200 truncate">
+              <span className="text-xs sm:text-[13px] font-semibold text-neutral-100 truncate">
                 {car.transmission}
               </span>
             </div>
