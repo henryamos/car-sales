@@ -83,9 +83,6 @@ export function Footer() {
               <MessageSquare className="w-3.5 h-3.5" />
               <span>WhatsApp: {PHONE_DISPLAY}</span>
             </a>
-            <span className="text-[11px] text-neutral-500 font-mono pt-1">
-              Accra &bull; Kumasi &bull; Tema
-            </span>
           </div>
         </div>
 
