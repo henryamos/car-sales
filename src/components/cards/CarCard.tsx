@@ -3,9 +3,20 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Heart, MessageSquare, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  MessageSquare,
+  Eye,
+  ChevronLeft,
+  ChevronRight,
+  Gauge,
+  Fuel,
+  Cog,
+  Sparkles,
+  Globe,
+  ShieldCheck,
+  Tag,
+} from "lucide-react";
 import { Car } from "@/types/car";
-import { useWishlist } from "@/context/WishlistContext";
 import { formatGHS, formatNumber } from "@/lib/utils";
 
 const DEFAULT_SELLER_WHATSAPP = "233559888003";
@@ -15,22 +26,20 @@ interface CarCardProps {
 }
 
 export function CarCard({ car }: CarCardProps) {
-  const { isInWishlist, toggleWishlist } = useWishlist();
-  const saved = isInWishlist(car.id);
   const [activeIdx, setActiveIdx] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
 
   const images = car.images && car.images.length > 0 ? car.images : ["/images/cars/land-cruiser-1.jpg"];
 
-  // Automated image cycling (not fixed)
+  // Only animate images on hover for that specific vehicle
   useEffect(() => {
-    if (images.length <= 1) return;
+    if (!isHovered || images.length <= 1) {
+      return;
+    }
 
-    // Cycle faster when user is hovering (1.8s), otherwise automated gentle cycle (4.5s)
-    const intervalTime = isHovered ? 1800 : 4500;
     const timer = setInterval(() => {
       setActiveIdx((prev) => (prev + 1) % images.length);
-    }, intervalTime);
+    }, 2200);
 
     return () => clearInterval(timer);
   }, [isHovered, images.length]);
@@ -52,18 +61,30 @@ export function CarCard({ car }: CarCardProps) {
     `${car.year} ${car.make} ${car.model} (${formatGHS(car.priceGHS)})`
   )}.`;
 
+  const conditionIcon =
+    car.condition === "Brand New" ? (
+      <Sparkles className="w-3 h-3 text-emerald-400" />
+    ) : car.condition === "Foreign Used" ? (
+      <Globe className="w-3 h-3 text-blue-400" />
+    ) : (
+      <ShieldCheck className="w-3 h-3 text-amber-400" />
+    );
+
   return (
     <div
       className="solid-card rounded-2xl overflow-hidden flex flex-col justify-between hover:border-neutral-700 transition-all duration-200 group"
       onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseLeave={() => {
+        setIsHovered(false);
+        setActiveIdx(0);
+      }}
     >
-      {/* 1. Automated Photo Container */}
+      {/* 1. Photo Container */}
       <div className="relative aspect-[16/10] w-full bg-neutral-900 overflow-hidden">
         {images.map((img, idx) => (
           <div
             key={idx}
-            className={`absolute inset-0 transition-opacity duration-500 ease-in-out ${
+            className={`absolute inset-0 transition-opacity duration-300 ease-in-out ${
               idx === activeIdx ? "opacity-100" : "opacity-0 pointer-events-none"
             }`}
           >
@@ -78,28 +99,12 @@ export function CarCard({ car }: CarCardProps) {
           </div>
         ))}
 
-        {/* Top Badges */}
-        <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none z-10">
-          <span className="px-2.5 py-1 rounded-md bg-black/90 border border-neutral-700 text-[10px] font-mono uppercase tracking-wider text-neutral-200">
-            {car.condition}
+        {/* Top Badges (No Favorite Heart) */}
+        <div className="absolute top-3 left-3 z-10 pointer-events-none">
+          <span className="px-2.5 py-1 rounded-md bg-black/90 border border-neutral-700 text-[10px] font-mono uppercase tracking-wider text-neutral-200 flex items-center gap-1.5 backdrop-blur-sm">
+            {conditionIcon}
+            <span>{car.condition}</span>
           </span>
-
-          <button
-            type="button"
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              toggleWishlist(car.id);
-            }}
-            className={`pointer-events-auto p-2 rounded-md bg-black/90 border transition-colors ${
-              saved
-                ? "bg-white text-black border-white"
-                : "text-white border-neutral-700 hover:border-white"
-            }`}
-            aria-label={saved ? "Saved" : "Save"}
-          >
-            <Heart className={`w-3.5 h-3.5 ${saved ? "fill-current" : ""}`} />
-          </button>
         </div>
 
         {/* Manual Arrow Controls on Card */}
@@ -139,7 +144,7 @@ export function CarCard({ car }: CarCardProps) {
         )}
       </div>
 
-      {/* 2. Structured Content with Clear Typographic Hierarchy */}
+      {/* 2. Structured Content with Rich Icons & Typographic Hierarchy */}
       <div className="p-5 flex flex-col justify-between flex-1 gap-4">
         {/* Title & Trim */}
         <div className="flex flex-col gap-1">
@@ -150,17 +155,22 @@ export function CarCard({ car }: CarCardProps) {
             {car.trim}
           </p>
 
-          {/* Key Specs Row */}
-          <div className="flex items-center gap-2 text-[11px] text-neutral-300 font-mono pt-2">
-            <span className="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">
-              {car.mileageKm === 0 ? "0 km" : `${formatNumber(car.mileageKm)} km`}
-            </span>
-            <span className="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">
-              {car.fuelType}
-            </span>
-            <span className="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">
-              {car.transmission}
-            </span>
+          {/* Key Specs Row with Intuitive Icons */}
+          <div className="grid grid-cols-3 gap-2 text-[11px] text-neutral-300 font-mono pt-2">
+            <div className="px-2 py-1 rounded bg-neutral-900 border border-neutral-800 flex items-center gap-1.5 truncate">
+              <Gauge className="w-3 h-3 text-neutral-400 shrink-0" />
+              <span className="truncate">{car.mileageKm === 0 ? "0 km" : `${formatNumber(car.mileageKm)} km`}</span>
+            </div>
+
+            <div className="px-2 py-1 rounded bg-neutral-900 border border-neutral-800 flex items-center gap-1.5 truncate">
+              <Fuel className="w-3 h-3 text-neutral-400 shrink-0" />
+              <span className="truncate">{car.fuelType}</span>
+            </div>
+
+            <div className="px-2 py-1 rounded bg-neutral-900 border border-neutral-800 flex items-center gap-1.5 truncate">
+              <Cog className="w-3 h-3 text-neutral-400 shrink-0" />
+              <span className="truncate">{car.transmission}</span>
+            </div>
           </div>
         </div>
 
@@ -168,21 +178,22 @@ export function CarCard({ car }: CarCardProps) {
         <div className="pt-3.5 border-t border-neutral-800/80 flex flex-col gap-3">
           {/* Price */}
           <div className="flex flex-col">
-            <span className="text-[10px] font-mono uppercase text-neutral-400 tracking-wider">
-              Asking Price
+            <span className="text-[10px] font-mono uppercase text-neutral-400 tracking-wider flex items-center gap-1">
+              <Tag className="w-3 h-3 text-neutral-400" />
+              <span>Asking Price</span>
             </span>
             <span className="text-xl sm:text-2xl font-extrabold font-mono text-white tracking-tight">
               {formatGHS(car.priceGHS)}
             </span>
           </div>
 
-          {/* Action Buttons: Vertical arrangement on mobile screens, 2-cols on sm+ */}
+          {/* Action Buttons: Clear primary/secondary hierarchy with icons */}
           <div className="flex flex-col sm:grid sm:grid-cols-2 gap-2">
             <a
               href={whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="h-11 sm:h-10 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors order-1 sm:order-2"
+              className="h-11 sm:h-10 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors order-1 sm:order-2 shadow-sm"
               title="Inquire via WhatsApp"
             >
               <MessageSquare className="w-3.5 h-3.5" />
@@ -193,8 +204,8 @@ export function CarCard({ car }: CarCardProps) {
               href={`/cars/${car.id}`}
               className="h-11 sm:h-10 px-3 rounded-xl bg-neutral-900 border border-neutral-700/80 hover:border-neutral-500 hover:bg-neutral-800 text-neutral-200 hover:text-white text-xs font-medium flex items-center justify-center gap-1.5 transition-colors order-2 sm:order-1"
             >
+              <Eye className="w-3.5 h-3.5 text-neutral-400" />
               <span>View Details</span>
-              <ArrowRight className="w-3.5 h-3.5 text-neutral-400" />
             </Link>
           </div>
         </div>

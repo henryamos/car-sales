@@ -21,8 +21,8 @@ export const CARS_DATA: Car[] = [
     featured: true,
     heroSlide: true,
     images: [
-      "/images/cars/land-cruiser-1.jpg",
-      "/images/cars/land-cruiser-2.jpg",
+          "/images/cars/land-cruiser-1.jpg",
+          "/images/cars/land-cruiser-2.jpg"
     ],
     vin: "JTMHY7AJ4RA029381",
     stockNumber: "ACC-3004",
@@ -64,8 +64,8 @@ export const CARS_DATA: Car[] = [
     featured: true,
     heroSlide: true,
     images: [
-      "/images/cars/prado-1.jpg",
-      "/images/cars/prado-2.jpg",
+          "/images/cars/prado-1.jpg",
+          "/images/cars/prado-2.jpg"
     ],
     vin: "JTEBX3FJ9RA081923",
     stockNumber: "ACC-2501",
@@ -107,8 +107,8 @@ export const CARS_DATA: Car[] = [
     featured: true,
     heroSlide: true,
     images: [
-      "/images/cars/mercedes-gle-1.jpg",
-      "/images/cars/mercedes-gle-2.jpg",
+          "/images/cars/mercedes-gle-1.jpg",
+          "/images/cars/mercedes-gle-2.jpg"
     ],
     vin: "4JGDA5KB6NB192039",
     stockNumber: "ACC-4502",
@@ -149,8 +149,8 @@ export const CARS_DATA: Car[] = [
     condition: "Foreign Used",
     featured: true,
     images: [
-      "/images/cars/prado-2.jpg",
-      "/images/cars/prado-1.jpg",
+          "/images/cars/prado-2.jpg",
+          "/images/cars/prado-1.jpg"
     ],
     vin: "JTEBX3FJ8MK091823",
     stockNumber: "SPX-2104",
@@ -191,8 +191,8 @@ export const CARS_DATA: Car[] = [
     condition: "Foreign Used",
     featured: true,
     images: [
-      "/images/cars/lexus-rx-1.jpg",
-      "/images/cars/lexus-rx-2.jpg",
+          "/images/cars/lexus-rx-1.jpg",
+          "/images/cars/lexus-rx-2.jpg"
     ],
     vin: "2T2HZMCA6NC891023",
     stockNumber: "CAN-3501",
@@ -233,8 +233,8 @@ export const CARS_DATA: Car[] = [
     condition: "Ghana Used",
     featured: true,
     images: [
-      "/images/cars/hilux-1.jpg",
-      "/images/cars/hilux-2.jpg",
+          "/images/cars/hilux-1.jpg",
+          "/images/cars/hilux-2.jpg"
     ],
     vin: "MHFBR69G203918231",
     stockNumber: "KSI-2801",
@@ -276,8 +276,7 @@ export const CARS_DATA: Car[] = [
     condition: "Foreign Used",
     featured: false,
     images: [
-      "/images/cars/c300-1.jpg",
-      "/images/cars/mercedes-gle-1.jpg",
+          "/images/cars/c300-1.jpg"
     ],
     vin: "55SWF4KB7LU190283",
     stockNumber: "DZR-3004",
@@ -318,8 +317,7 @@ export const CARS_DATA: Car[] = [
     condition: "Foreign Used",
     featured: false,
     images: [
-      "/images/cars/tucson-1.jpg",
-      "/images/cars/rav4-1.jpg",
+          "/images/cars/tucson-1.jpg"
     ],
     vin: "KM8JB3AE4PU019283",
     stockNumber: "TMA-2309",
@@ -360,8 +358,7 @@ export const CARS_DATA: Car[] = [
     condition: "Foreign Used",
     featured: true,
     images: [
-      "/images/cars/range-rover-1.jpg",
-      "/images/cars/land-cruiser-2.jpg",
+          "/images/cars/range-rover-1.jpg"
     ],
     vin: "SALWR2V41MA091823",
     stockNumber: "ELG-8801",
@@ -402,8 +399,7 @@ export const CARS_DATA: Car[] = [
     condition: "Ghana Used",
     featured: false,
     images: [
-      "/images/cars/corolla-1.jpg",
-      "/images/cars/c300-1.jpg",
+          "/images/cars/corolla-1.jpg"
     ],
     vin: "2T1BURHE7LC102938",
     stockNumber: "DZR-1802",
@@ -445,8 +441,7 @@ export const CARS_DATA: Car[] = [
     condition: "Foreign Used",
     featured: false,
     images: [
-      "/images/cars/rav4-1.jpg",
-      "/images/cars/tucson-1.jpg",
+          "/images/cars/rav4-1.jpg"
     ],
     vin: "2T3P1RFV5MC192834",
     stockNumber: "ACC-2410",
@@ -487,8 +482,7 @@ export const CARS_DATA: Car[] = [
     condition: "Ghana Used",
     featured: false,
     images: [
-      "/images/cars/fortuner-1.jpg",
-      "/images/cars/land-cruiser-1.jpg",
+          "/images/cars/fortuner-1.jpg"
     ],
     vin: "MR0HA3FX6K0918231",
     stockNumber: "KSI-4402",

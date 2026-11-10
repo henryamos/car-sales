@@ -1,7 +1,18 @@
 "use client";
 
 import React, { useState, useMemo, useEffect } from "react";
-import { Search, RotateCcw, ChevronLeft, ChevronRight, SlidersHorizontal, Layers } from "lucide-react";
+import {
+  Search,
+  RotateCcw,
+  ChevronLeft,
+  ChevronRight,
+  SlidersHorizontal,
+  Layers,
+  Car,
+  Sparkles,
+  Globe,
+  ShieldCheck,
+} from "lucide-react";
 import { CARS_DATA, BODY_TYPES, CONDITION_TABS } from "@/data/cars";
 import { CarCard } from "@/components/cards/CarCard";
 import { CustomDropdown } from "@/components/ui/CustomDropdown";
@@ -90,7 +101,7 @@ export function FeaturedInventory() {
           </p>
         </div>
 
-        {/* Primary Condition Tabs: Spacious with Breathing Room */}
+        {/* Primary Condition Tabs: Spacious with Breathing Room & Rich Icons */}
         <div className="pt-6 pb-4">
           <div className="flex items-center gap-2.5 overflow-x-auto pb-1 no-scrollbar">
             {CONDITION_TABS.map((tab) => {
@@ -100,17 +111,29 @@ export function FeaturedInventory() {
                   ? CARS_DATA.length
                   : CARS_DATA.filter((c) => c.condition === tab.value).length;
 
+              const tabIcon =
+                tab.value === "Brand New" ? (
+                  <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
+                ) : tab.value === "Foreign Used" ? (
+                  <Globe className="w-3.5 h-3.5 text-blue-400" />
+                ) : tab.value === "Ghana Used" ? (
+                  <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />
+                ) : (
+                  <Car className="w-3.5 h-3.5 text-neutral-400" />
+                );
+
               return (
                 <button
                   key={tab.value}
                   type="button"
                   onClick={() => setSelectedCondition(tab.value)}
-                  className={`px-4 py-2.5 rounded-xl text-xs font-medium whitespace-nowrap transition-colors flex items-center gap-2.5 ${
+                  className={`px-4 py-2.5 rounded-xl text-xs font-medium whitespace-nowrap transition-colors flex items-center gap-2 ${
                     isActive
                       ? "bg-white text-black font-semibold shadow-md"
                       : "bg-neutral-900/80 text-neutral-300 border border-neutral-800 hover:border-neutral-700 hover:text-white"
                   }`}
                 >
+                  {tabIcon}
                   <span>{tab.label}</span>
                   <span
                     className={`text-[10px] px-2 py-0.5 rounded font-mono ${
