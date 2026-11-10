@@ -191,10 +191,10 @@ export function CarCard({ car }: CarCardProps) {
 
             <Link
               href={`/cars/${car.id}`}
-              className="h-11 sm:h-10 px-3 rounded-xl bg-white text-black hover:bg-neutral-200 text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors order-2 sm:order-1"
+              className="h-11 sm:h-10 px-3 rounded-xl bg-neutral-900 border border-neutral-700/80 hover:border-neutral-500 hover:bg-neutral-800 text-neutral-200 hover:text-white text-xs font-medium flex items-center justify-center gap-1.5 transition-colors order-2 sm:order-1"
             >
               <span>View Details</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <ArrowRight className="w-3.5 h-3.5 text-neutral-400" />
             </Link>
           </div>
         </div>

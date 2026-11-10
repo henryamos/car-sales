@@ -67,24 +67,24 @@ export function HeroSection() {
             Browse verified Brand New, Foreign Used, and Ghana Used vehicles. Direct pricing in Ghana Cedis (GH₵) with instant seller WhatsApp inquiries.
           </p>
 
-          {/* Action Buttons: Vertical arrangement on mobile screens, horizontal on sm+ */}
+          {/* Action Buttons: Clear primary/secondary hierarchy with zero visual competition */}
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-3 w-full sm:w-auto">
-            <a
-              href="#inventory"
-              className="h-11 px-5 rounded-xl bg-white text-black hover:bg-neutral-200 font-semibold text-xs flex items-center justify-center gap-2 transition-colors w-full sm:w-auto"
-            >
-              <span>Explore Inventory</span>
-              <ArrowDown className="w-3.5 h-3.5" />
-            </a>
-
             <a
               href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hello%20AutoGhana,%20inquiring%20about%20available%20cars.`}
               target="_blank"
               rel="noopener noreferrer"
-              className="h-11 px-5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs flex items-center justify-center gap-2 transition-colors w-full sm:w-auto"
+              className="h-11 px-6 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs flex items-center justify-center gap-2 transition-colors w-full sm:w-auto shadow-sm"
             >
-              <MessageSquare className="w-3.5 h-3.5" />
+              <MessageSquare className="w-4 h-4" />
               <span>WhatsApp Inquiries</span>
+            </a>
+
+            <a
+              href="#inventory"
+              className="h-11 px-5 rounded-xl bg-neutral-900 border border-neutral-700/80 hover:border-neutral-500 hover:bg-neutral-800 text-neutral-200 hover:text-white font-medium text-xs flex items-center justify-center gap-2 transition-colors w-full sm:w-auto"
+            >
+              <span>Explore Inventory</span>
+              <ArrowDown className="w-3.5 h-3.5 text-neutral-400" />
             </a>
           </div>
         </div>
