@@ -21,9 +21,9 @@ export function HeroSection() {
           className="object-cover object-[70%_center] sm:object-[75%_center] lg:object-[78%_center]"
         />
 
-        {/* Clean directional gradient: dark negative space on the left, full vehicle impact on the right */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/85 via-40% to-transparent sm:via-black/70 sm:via-45% to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+        {/* Subtle directional gradient on left for text legibility, leaving the SUV completely unobscured and bright on the right */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/90 via-35% to-transparent sm:via-black/75 sm:via-42% to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black to-transparent" />
       </div>
 
       {/* Main Content: Confident, Natural & Restrained */}
