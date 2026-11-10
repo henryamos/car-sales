@@ -1,14 +1,14 @@
 import React from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Sparkles, Globe, ShieldCheck } from "lucide-react";
 import { CARS_DATA } from "@/data/cars";
 import { ImageGallery } from "@/components/car-details/ImageGallery";
 import { QuickSpecsBar } from "@/components/car-details/QuickSpecsBar";
 import { DetailedSpecsTable } from "@/components/car-details/DetailedSpecsTable";
 import { InquiryCard } from "@/components/car-details/InquiryCard";
 import { SimilarCars } from "@/components/car-details/SimilarCars";
-import { formatGHS, formatNumber } from "@/lib/utils";
+import { formatGHS } from "@/lib/utils";
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -28,6 +28,15 @@ export default async function CarDetailsPage({ params }: PageProps) {
     notFound();
   }
 
+  const conditionIcon =
+    car.condition === "Brand New" ? (
+      <Sparkles className="w-3 h-3 text-emerald-400" />
+    ) : car.condition === "Foreign Used" ? (
+      <Globe className="w-3 h-3 text-blue-400" />
+    ) : (
+      <ShieldCheck className="w-3 h-3 text-amber-400" />
+    );
+
   return (
     <div className="min-h-screen bg-black text-white pt-20 pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -46,28 +55,30 @@ export default async function CarDetailsPage({ params }: PageProps) {
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 pb-6 border-b border-neutral-800">
           <div>
             <div className="flex items-center gap-2">
-              <span className="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-700 text-[10px] font-mono text-neutral-300">
-                {car.condition}
+              <span className="px-2.5 py-1 rounded-md bg-neutral-900 border border-neutral-700 text-[10px] font-mono text-neutral-200 flex items-center gap-1.5">
+                {conditionIcon}
+                <span>{car.condition}</span>
+              </span>
+              <span className="text-xs font-mono text-neutral-400">
+                Stock Ref: {car.stockNumber}
               </span>
             </div>
 
-            <h1 className="text-2xl sm:text-3xl font-bold text-white tracking-tight mt-1">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight mt-2">
               {car.year} {car.make} {car.model}
             </h1>
-            <p className="text-xs text-neutral-400 mt-0.5 font-mono">
-              {car.trim} &bull; {car.transmission} &bull; {car.fuelType}
+            <p className="text-xs sm:text-sm text-neutral-400 mt-1 font-mono">
+              {car.trim} &bull; {car.transmission} &bull; {car.fuelType} &bull; {car.location || "Accra"}
             </p>
           </div>
 
           <div className="flex flex-col sm:items-end">
+            <span className="text-[10px] uppercase font-mono tracking-wider text-neutral-400">
+              Verified Price
+            </span>
             <span className="text-2xl sm:text-3xl font-bold font-mono text-white">
               {formatGHS(car.priceGHS)}
             </span>
-            {car.priceUSD && (
-              <span className="text-xs font-mono text-neutral-400">
-                ~${formatNumber(car.priceUSD)} USD
-              </span>
-            )}
           </div>
         </div>
 
@@ -83,9 +94,9 @@ export default async function CarDetailsPage({ params }: PageProps) {
             <ImageGallery images={car.images} vehicleTitle={`${car.year} ${car.make} ${car.model}`} />
 
             {/* Description */}
-            <div className="p-5 rounded-xl bg-neutral-950 border border-neutral-800">
+            <div className="p-5 sm:p-6 rounded-2xl bg-neutral-950 border border-neutral-800">
               <h3 className="text-xs font-semibold uppercase tracking-wider text-neutral-400 font-mono mb-2">
-                Vehicle Details
+                Vehicle Overview
               </h3>
               <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed">
                 {car.description}
@@ -99,7 +110,7 @@ export default async function CarDetailsPage({ params }: PageProps) {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-neutral-300">
                   {car.keyFeatures.map((f, i) => (
                     <div key={i} className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-neutral-400" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
                       <span>{f}</span>
                     </div>
                   ))}

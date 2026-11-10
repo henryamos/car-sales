@@ -39,7 +39,7 @@ export function CarCard({ car }: CarCardProps) {
 
     const timer = setInterval(() => {
       setActiveIdx((prev) => (prev + 1) % images.length);
-    }, 2200);
+    }, 2400);
 
     return () => clearInterval(timer);
   }, [isHovered, images.length]);
@@ -187,26 +187,31 @@ export function CarCard({ car }: CarCardProps) {
             </span>
           </div>
 
-          {/* Action Buttons: Clear primary/secondary hierarchy with icons */}
+          {/* Standardized Button Hierarchy:
+              - Primary Action (Green): View Details
+              - Secondary Action (Outlined): WhatsApp
+          */}
           <div className="flex flex-col sm:grid sm:grid-cols-2 gap-2">
+            {/* Primary Action: View Details in Solid Emerald Green */}
+            <Link
+              href={`/cars/${car.id}`}
+              className="h-11 sm:h-10 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors order-1 shadow-sm"
+            >
+              <Eye className="w-3.5 h-3.5" />
+              <span>View Details</span>
+            </Link>
+
+            {/* Secondary Action: WhatsApp in Subtle Dark Outlined */}
             <a
               href={whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="h-11 sm:h-10 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors order-1 sm:order-2 shadow-sm"
+              className="h-11 sm:h-10 px-3 rounded-xl bg-neutral-900 border border-neutral-700/80 hover:border-neutral-500 hover:bg-neutral-800 text-neutral-200 hover:text-white text-xs font-medium flex items-center justify-center gap-1.5 transition-colors order-2"
               title="Inquire via WhatsApp"
             >
-              <MessageSquare className="w-3.5 h-3.5" />
+              <MessageSquare className="w-3.5 h-3.5 text-neutral-400" />
               <span>WhatsApp</span>
             </a>
-
-            <Link
-              href={`/cars/${car.id}`}
-              className="h-11 sm:h-10 px-3 rounded-xl bg-neutral-900 border border-neutral-700/80 hover:border-neutral-500 hover:bg-neutral-800 text-neutral-200 hover:text-white text-xs font-medium flex items-center justify-center gap-1.5 transition-colors order-2 sm:order-1"
-            >
-              <Eye className="w-3.5 h-3.5 text-neutral-400" />
-              <span>View Details</span>
-            </Link>
           </div>
         </div>
       </div>

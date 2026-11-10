@@ -309,7 +309,7 @@ function InventoryContent() {
           <p className="text-xs text-neutral-500 mt-1">Try resetting the filters or searching for another model.</p>
           <button
             onClick={handleReset}
-            className="mt-4 px-5 py-2.5 rounded-xl bg-white text-black text-xs font-semibold hover:bg-neutral-200 transition-colors cursor-pointer"
+            className="mt-4 px-5 py-2.5 rounded-xl bg-neutral-900 border border-neutral-700/80 hover:border-neutral-500 text-neutral-200 hover:text-white text-xs font-medium transition-colors cursor-pointer"
           >
             Reset All Filters
           </button>
