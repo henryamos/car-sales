@@ -81,19 +81,13 @@ export function FeaturedInventory() {
     <section id="inventory" className="w-full bg-black py-16 sm:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header: Clean & Spacious */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6 border-b border-neutral-800">
-          <div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-              Vehicle Inventory
-            </h2>
-            <p className="text-xs sm:text-sm text-neutral-400 mt-1">
-              Select condition and body style to filter available cars.
-            </p>
-          </div>
-
-          <div className="text-xs font-mono text-neutral-400">
-            {filteredCars.length} {filteredCars.length === 1 ? "car" : "cars"} available
-          </div>
+        <div className="pb-6 border-b border-neutral-800">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+            Vehicle Inventory
+          </h2>
+          <p className="text-xs sm:text-sm text-neutral-400 mt-1">
+            Select condition and body style to filter available cars.
+          </p>
         </div>
 
         {/* Primary Condition Tabs: Spacious with Breathing Room */}
@@ -211,7 +205,7 @@ export function FeaturedInventory() {
         {totalPages > 1 && (
           <div className="pt-12 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-neutral-900 mt-12">
             <span className="text-xs font-mono text-neutral-400">
-              Showing page {currentPage} of {totalPages} ({filteredCars.length} total cars)
+              Page {currentPage} of {totalPages}
             </span>
 
             <div className="flex items-center gap-2">

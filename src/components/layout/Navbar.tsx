@@ -44,11 +44,11 @@ export function Navbar() {
             {/* Right Controls */}
             <div className="hidden sm:flex items-center gap-3">
               <a
-                href="tel:+233244550192"
+                href="tel:+233559888003"
                 className="flex items-center gap-1.5 text-xs text-neutral-300 hover:text-white font-mono px-2.5 py-1.5 rounded-md border border-neutral-800 hover:border-neutral-700"
               >
                 <Phone className="w-3.5 h-3.5 text-neutral-400" />
-                <span>024 455 0192</span>
+                <span>055 988 8003</span>
               </a>
 
               <Link
@@ -65,7 +65,7 @@ export function Navbar() {
               </Link>
 
               <a
-                href="https://wa.me/233244550192?text=Hello%20AutoGhana,%20inquiring%20about%20available%20cars."
+                href="https://wa.me/233559888003?text=Hello%20AutoGhana,%20inquiring%20about%20available%20cars."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-3 py-1.5 rounded-md bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-medium flex items-center gap-1 transition-colors"
@@ -116,19 +116,19 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <div className="pt-2 flex gap-2">
+            <div className="pt-2 flex flex-col gap-2">
               <a
-                href="https://wa.me/233244550192"
-                className="flex-1 py-2 rounded-lg bg-emerald-600 text-white text-center text-xs font-semibold flex items-center justify-center gap-1.5"
+                href="https://wa.me/233559888003"
+                className="w-full py-2.5 rounded-lg bg-emerald-600 text-white text-center text-xs font-semibold flex items-center justify-center gap-1.5"
               >
                 <MessageSquare className="w-3.5 h-3.5" />
                 <span>WhatsApp</span>
               </a>
               <a
-                href="tel:+233244550192"
-                className="flex-1 py-2 rounded-lg border border-neutral-800 text-center text-xs text-neutral-300"
+                href="tel:+233559888003"
+                className="w-full py-2.5 rounded-lg border border-neutral-800 text-center text-xs text-neutral-300"
               >
-                Call
+                Call: 055 988 8003
               </a>
             </div>
           </div>
