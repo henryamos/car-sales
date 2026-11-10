@@ -31,18 +31,25 @@ export function CustomDropdown({
   const selectedOption = options.find((o) => o.value === value);
 
   useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
+    function handleClickOutside(event: MouseEvent | TouchEvent) {
       if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
         setIsOpen(false);
       }
     }
     if (isOpen) {
       document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener("touchstart", handleClickOutside);
     }
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
     };
   }, [isOpen]);
+
+  const handleSelect = (optionValue: string) => {
+    onChange(optionValue);
+    setIsOpen(false);
+  };
 
   return (
     <div ref={containerRef} className={`relative ${className}`}>
@@ -50,7 +57,7 @@ export function CustomDropdown({
       <button
         type="button"
         onClick={() => setIsOpen((prev) => !prev)}
-        className="w-full h-11 px-3.5 rounded-xl solid-input text-xs font-medium flex items-center justify-between gap-2.5 hover:border-neutral-700 transition-colors text-left"
+        className="w-full h-11 px-3.5 rounded-xl solid-input text-xs font-medium flex items-center justify-between gap-2.5 hover:border-neutral-700 transition-colors text-left bg-neutral-950 border border-neutral-800"
         aria-haspopup="listbox"
         aria-expanded={isOpen}
       >
@@ -69,21 +76,25 @@ export function CustomDropdown({
 
       {/* Floating Menu Popover */}
       {isOpen && (
-        <div className="absolute left-0 right-0 top-full mt-1.5 z-40 p-1.5 rounded-xl bg-neutral-950 border border-neutral-800 shadow-2xl max-h-64 overflow-y-auto no-scrollbar">
+        <div
+          className="absolute left-0 right-0 top-full mt-1.5 z-50 p-1.5 rounded-xl bg-neutral-950 border border-neutral-800 shadow-2xl max-h-64 overflow-y-auto no-scrollbar"
+          role="listbox"
+        >
           {options.map((option) => {
             const isSelected = option.value === value;
             return (
               <button
                 key={option.value}
                 type="button"
-                onClick={() => {
-                  onChange(option.value);
-                  setIsOpen(false);
+                onMouseDown={(e) => {
+                  e.preventDefault();
+                  handleSelect(option.value);
                 }}
-                className={`w-full px-3 py-2.5 rounded-lg text-xs flex items-center justify-between text-left transition-colors ${
+                onClick={() => handleSelect(option.value)}
+                className={`w-full px-3 py-2.5 rounded-lg text-xs flex items-center justify-between text-left transition-colors cursor-pointer ${
                   isSelected
-                    ? "bg-neutral-900 text-white font-medium"
-                    : "text-neutral-300 hover:text-white hover:bg-neutral-900/60"
+                    ? "bg-neutral-900 text-white font-semibold"
+                    : "text-neutral-300 hover:text-white hover:bg-neutral-900/80"
                 }`}
                 role="option"
                 aria-selected={isSelected}

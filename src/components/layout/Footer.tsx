@@ -19,15 +19,15 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Quick Links */}
+          {/* Quick Links with real working filters */}
           <div className="flex flex-col gap-1 text-xs text-neutral-400">
             <span className="text-white font-semibold uppercase text-[10px] font-mono mb-0.5">
               Vehicles
             </span>
             <Link href="/#inventory" className="hover:text-white transition-colors">All Cars</Link>
-            <Link href="/#inventory" className="hover:text-white transition-colors">Brand New</Link>
-            <Link href="/#inventory" className="hover:text-white transition-colors">Foreign Used</Link>
-            <Link href="/#inventory" className="hover:text-white transition-colors">Ghana Used</Link>
+            <Link href="/?condition=Brand+New#inventory" className="hover:text-white transition-colors">Brand New (0 km)</Link>
+            <Link href="/?condition=Foreign+Used#inventory" className="hover:text-white transition-colors">Foreign Used</Link>
+            <Link href="/?condition=Ghana+Used#inventory" className="hover:text-white transition-colors">Ghana Used</Link>
           </div>
 
           {/* Contact */}

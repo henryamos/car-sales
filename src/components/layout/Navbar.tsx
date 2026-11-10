@@ -12,9 +12,9 @@ export function Navbar() {
 
   const navLinks = [
     { label: "All Cars", href: "/#inventory", icon: <Car className="w-3.5 h-3.5" /> },
-    { label: "Brand New (0 km)", href: "/#inventory", icon: <Sparkles className="w-3.5 h-3.5 text-emerald-400" /> },
-    { label: "Foreign Used", href: "/#inventory", icon: <Globe className="w-3.5 h-3.5 text-blue-400" /> },
-    { label: "Ghana Used", href: "/#inventory", icon: <ShieldCheck className="w-3.5 h-3.5 text-amber-400" /> },
+    { label: "Brand New (0 km)", href: "/?condition=Brand+New#inventory", icon: <Sparkles className="w-3.5 h-3.5 text-emerald-400" /> },
+    { label: "Foreign Used", href: "/?condition=Foreign+Used#inventory", icon: <Globe className="w-3.5 h-3.5 text-blue-400" /> },
+    { label: "Ghana Used", href: "/?condition=Ghana+Used#inventory", icon: <ShieldCheck className="w-3.5 h-3.5 text-amber-400" /> },
   ];
 
   return (
@@ -32,7 +32,7 @@ export function Navbar() {
               </span>
             </Link>
 
-            {/* Desktop Navigation with Icons */}
+            {/* Desktop Navigation with Icons & Working Filter Links */}
             <nav className="hidden md:flex items-center gap-6">
               {navLinks.map((link) => (
                 <Link
