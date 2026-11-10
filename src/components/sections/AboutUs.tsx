@@ -7,23 +7,23 @@ export function AboutUs() {
   const highlights = [
     {
       icon: <Award className="w-5 h-5 text-emerald-400" />,
-      title: "Authentic Inventory Only",
-      desc: "Every listing on AutoGhana features authentic photographs of the actual vehicle. What you see online is exactly what you inspect in person.",
+      title: "Authentic Inventory First",
+      desc: "Every listing on AutoGhana features authentic photographs of the actual vehicle. What you see online is the exact automobile you inspect in person.",
     },
     {
       icon: <FileCheck2 className="w-5 h-5 text-emerald-400" />,
       title: "Direct Ghana Cedis Pricing",
-      desc: "Zero speculative exchange rates or unstated broker markups. All vehicle prices are quoted in clear Ghana Cedis (GH₵).",
+      desc: "Zero speculative exchange rates or surprise middleman markups. All vehicle prices are quoted directly in clear Ghana Cedis (GH₵).",
     },
     {
       icon: <ShieldCheck className="w-5 h-5 text-emerald-400" />,
-      title: "Verified Documentation",
-      desc: "We verify chassis numbers (VIN), DVLA registration status, and customs import duty clearance before listing.",
+      title: "Documentation Standards",
+      desc: "Every listing is checked for documented chassis reference (VIN), seller identity, and registration paperwork prior to scheduled viewings.",
     },
     {
       icon: <Users className="w-5 h-5 text-emerald-400" />,
-      title: "Dedicated Local Support",
-      desc: "Our automotive advisors in Accra and Kumasi guide buyers through scheduling test drives, mechanical inspections, and vehicle transfers.",
+      title: "Direct Physical Viewings",
+      desc: "Schedule private viewings and bring your trusted mechanic for computer diagnostics testing at inspection points in Accra and Kumasi.",
     },
   ];
 
@@ -38,7 +38,7 @@ export function AboutUs() {
             Setting the Standard for Car Sales in Ghana
           </h2>
           <p className="text-xs sm:text-sm text-neutral-400 mt-2 leading-relaxed">
-            Founded to solve the frustrations of deceptive listings and inaccurate photos in Ghana&apos;s auto market, AutoGhana connects buyers with verified Brand New, Foreign Used, and Ghana Used vehicles.
+            AutoGhana was established to provide a transparent, reliable automotive marketplace in Ghana. We eliminate phantom listings and mismatched photos, giving buyers direct access to verified Brand New, Foreign Used, and Ghana Used vehicles.
           </p>
         </div>
 

@@ -32,8 +32,8 @@ export function HeroSection() {
   const currentCar = heroCars[currentIndex] || heroCars[0];
 
   return (
-    <section className="relative w-full min-h-[500px] sm:min-h-[540px] lg:min-h-[580px] flex items-center bg-black border-b border-neutral-800 overflow-hidden pt-16">
-      {/* Background Carousel with visually impressive, lighter dark overlay */}
+    <section className="relative w-full min-h-[480px] sm:min-h-[520px] lg:min-h-[560px] flex items-center bg-black border-b border-neutral-800 overflow-hidden pt-16">
+      {/* Background Carousel with reduced overlay on car side for maximum visual presence */}
       <div className="absolute inset-0 z-0">
         {heroCars.map((car, idx) => (
           <div
@@ -54,26 +54,26 @@ export function HeroSection() {
           </div>
         ))}
 
-        {/* Lighter balanced overlay: keeps text readable on left while letting car shine on right */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/65 to-black/30" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
+        {/* Lighter balanced overlay: readable text on left, vivid vehicle on right */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/55 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-70" />
       </div>
 
-      {/* Main Content: Strict Visual Hierarchy */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-18 lg:py-20">
+      {/* Main Content: Crisp Visual Hierarchy */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
         <div className="max-w-2xl flex flex-col items-start gap-4">
           {/* 1. Primary Headline */}
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.15]">
             Buy Verified Cars in Ghana
           </h1>
 
-          {/* 2. Supporting Value Message */}
+          {/* 2. Short, Concise Value Proposition (1-2 lines) */}
           <p className="text-sm sm:text-base text-neutral-300 leading-relaxed max-w-lg font-normal">
-            Explore quality vehicles from trusted sellers across Ghana. Direct pricing in Ghana Cedis (GH₵) with authentic physical inspections and verified documentation.
+            Verified Brand New, Foreign Used, and Ghana Used vehicles. Direct Ghana Cedis pricing with authentic physical viewings.
           </p>
 
-          {/* 3 & 4. Primary & Secondary Action Hierarchy (Zero Color Competition) */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-3 w-full sm:w-auto">
+          {/* 3 & 4. Primary & Secondary Action Hierarchy */}
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2 w-full sm:w-auto">
             {/* Primary Action: Solid Green */}
             <a
               href="#inventory"
@@ -95,17 +95,32 @@ export function HeroSection() {
             </a>
           </div>
 
-          {/* Featured Car Indicator Pill */}
-          {currentCar && (
-            <div className="pt-2 text-xs text-neutral-400 font-mono flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              <span>Featured: {currentCar.year} {currentCar.make} {currentCar.model}</span>
-            </div>
-          )}
+          {/* Compact Quick Discovery Shortcuts */}
+          <div className="pt-2 flex items-center gap-2 flex-wrap text-xs">
+            <span className="text-neutral-400 text-[11px] font-mono mr-1">Quick Filter:</span>
+            <Link
+              href="/?condition=Brand+New#inventory"
+              className="px-2.5 py-1 rounded-lg bg-black/60 hover:bg-neutral-900 border border-neutral-800 hover:border-neutral-700 text-neutral-300 hover:text-white transition-colors text-[11px]"
+            >
+              Brand New
+            </Link>
+            <Link
+              href="/?condition=Foreign+Used#inventory"
+              className="px-2.5 py-1 rounded-lg bg-black/60 hover:bg-neutral-900 border border-neutral-800 hover:border-neutral-700 text-neutral-300 hover:text-white transition-colors text-[11px]"
+            >
+              Foreign Used
+            </Link>
+            <Link
+              href="/?condition=Ghana+Used#inventory"
+              className="px-2.5 py-1 rounded-lg bg-black/60 hover:bg-neutral-900 border border-neutral-800 hover:border-neutral-700 text-neutral-300 hover:text-white transition-colors text-[11px]"
+            >
+              Ghana Used
+            </Link>
+          </div>
         </div>
 
         {/* Slide Indicators */}
-        <div className="pt-10 flex items-center gap-3">
+        <div className="pt-8 flex items-center gap-3">
           <div className="flex items-center gap-1.5">
             {heroCars.map((_, idx) => (
               <button

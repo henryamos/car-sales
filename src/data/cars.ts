@@ -191,8 +191,8 @@ export const CARS_DATA: Car[] = [
     condition: "Foreign Used",
     featured: true,
     images: [
-          "/images/cars/lexus-rx-1.jpg",
-          "/images/cars/lexus-rx-2.jpg"
+      "/images/cars/lexus-rx-2.jpg",
+      "/images/cars/lexus-rx-1.jpg"
     ],
     vin: "2T2HZMCA6NC891023",
     stockNumber: "CAN-3501",
@@ -233,8 +233,8 @@ export const CARS_DATA: Car[] = [
     condition: "Ghana Used",
     featured: true,
     images: [
-          "/images/cars/hilux-1.jpg",
-          "/images/cars/hilux-2.jpg"
+      "/images/cars/hilux-2.jpg",
+      "/images/cars/hilux-1.jpg"
     ],
     vin: "MHFBR69G203918231",
     stockNumber: "KSI-2801",
