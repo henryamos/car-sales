@@ -26,7 +26,7 @@ export function AboutUs() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* Showroom Image */}
           <div className="lg:col-span-6">
-            <div className="relative aspect-[4/3] sm:aspect-[16/11] rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-900">
+            <div className="relative aspect-[4/3] sm:aspect-[16/11] rounded-[12px] overflow-hidden border border-[#262626] bg-[#111111]">
               <Image
                 src="/images/editorial/why-autoghana.jpg"
                 alt="AutoGhana dealership showroom"
@@ -53,7 +53,7 @@ export function AboutUs() {
               {reasons.map((item, idx) => (
                 <div
                   key={idx}
-                  className="p-4 rounded-xl bg-neutral-950 border border-neutral-800/80 flex items-start gap-3.5"
+                  className="p-4 rounded-[12px] bg-[#111111] border border-[#262626] flex items-start gap-3.5"
                 >
                   <div className="p-1 rounded-full bg-emerald-500/10 text-emerald-400 mt-0.5 shrink-0">
                     <Check className="w-4 h-4" />

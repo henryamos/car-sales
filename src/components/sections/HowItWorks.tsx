@@ -36,7 +36,7 @@ export function HowItWorks() {
           {steps.map((step) => (
             <div
               key={step.num}
-              className="rounded-2xl bg-black border border-neutral-800/90 overflow-hidden flex flex-col justify-between"
+              className="rounded-[12px] bg-[#111111] border border-[#262626] overflow-hidden flex flex-col justify-between"
             >
               <div>
                 <div className="relative aspect-[16/10] w-full bg-neutral-900 overflow-hidden">
