@@ -7,7 +7,6 @@ import {
   Car,
   X,
   CheckCircle,
-  Sparkles,
   Calendar,
   Wallet,
   User,
@@ -22,7 +21,7 @@ export function FinalCTA() {
   const [formData, setFormData] = useState({
     makeModel: "",
     condition: "Foreign Used",
-    preferredYear: "2022 - 2024",
+    preferredYear: "2021 - 2024",
     budgetGHS: "",
     fullName: "",
     phone: "",
@@ -37,7 +36,7 @@ export function FinalCTA() {
 • Condition: ${formData.condition}
 • Preferred Year: ${formData.preferredYear}
 • Target Budget: GH₵ ${formData.budgetGHS || "Negotiable"}
-• Customer: ${formData.fullName}
+• Name: ${formData.fullName}
 • Phone: ${formData.phone}`;
 
     const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
@@ -49,44 +48,35 @@ export function FinalCTA() {
     <>
       <section id="contact" className="w-full bg-neutral-950 py-16 sm:py-20 border-b border-neutral-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-b from-neutral-900/90 to-black border border-neutral-800 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-            <div className="max-w-xl flex flex-col gap-3">
-              <span className="text-xs font-mono uppercase tracking-wider text-emerald-400 flex items-center gap-1.5">
-                <Car className="w-3.5 h-3.5" />
-                <span>Custom Vehicle Sourcing</span>
-              </span>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-tight">
-                Looking for a Specific Model or Custom Import?
+          <div className="p-8 sm:p-12 rounded-3xl bg-neutral-900/80 border border-neutral-800 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+            <div className="max-w-xl flex flex-col gap-2.5">
+              <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight leading-tight">
+                Can&apos;t find the car you want?
               </h2>
-              <p className="text-xs sm:text-sm text-neutral-400 leading-relaxed">
-                If your desired car is not listed in our current showroom inventory, submit a sourcing request. Our Accra specialists will track, inspect, and source it directly for you.
+              <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed font-normal">
+                Tell us the make, model and your budget. We&apos;ll help you explore available options.
               </p>
             </div>
 
-            {/* Action Buttons: Strict Button Hierarchy
-                - Primary: Green "Find My Car" opens the sourcing request flow
-                - Secondary: Outlined "Contact Us" opens general chat
-            */}
+            {/* Action Buttons: Green Primary + Outlined Secondary */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full md:w-auto shrink-0">
-              {/* Primary Action: Solid Green */}
               <button
                 type="button"
                 onClick={() => setIsModalOpen(true)}
-                className="h-11 px-6 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs flex items-center justify-center gap-2 transition-colors shadow-sm cursor-pointer"
+                className="h-11 px-6 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 transition-colors shadow-sm cursor-pointer"
               >
-                <span>Find My Car</span>
-                <ArrowRight className="w-3.5 h-3.5" />
+                <span>Request a Car</span>
+                <ArrowRight className="w-4 h-4" />
               </button>
 
-              {/* Secondary Action: Outlined Dark */}
               <a
-                href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hello%20AutoGhana,%20inquiring%20about%20vehicle%20sourcing.`}
+                href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hello%20AutoGhana,%20inquiring%20about%20vehicle%20options.`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="h-11 px-5 rounded-xl bg-neutral-900 border border-neutral-700/80 hover:border-neutral-500 hover:bg-neutral-800 text-neutral-200 hover:text-white font-medium text-xs flex items-center justify-center gap-2 transition-colors"
+                className="h-11 px-5 rounded-xl bg-neutral-900 border border-neutral-700/80 hover:border-neutral-500 hover:bg-neutral-800 text-neutral-200 hover:text-white font-medium text-xs sm:text-sm flex items-center justify-center gap-2 transition-colors"
               >
-                <MessageSquare className="w-3.5 h-3.5 text-neutral-400" />
-                <span>Contact Us</span>
+                <MessageSquare className="w-4 h-4 text-neutral-400" />
+                <span>Chat on WhatsApp</span>
               </a>
             </div>
           </div>
@@ -105,14 +95,11 @@ export function FinalCTA() {
             {/* Header */}
             <div className="flex items-start justify-between pb-4 border-b border-neutral-800">
               <div>
-                <span className="text-[10px] font-mono uppercase tracking-wider text-emerald-400">
-                  Vehicle Sourcing Desk
-                </span>
-                <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight mt-0.5">
-                  Request Your Desired Car
+                <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
+                  Request a Car
                 </h3>
                 <p className="text-xs text-neutral-400 mt-1">
-                  Tell us what you are looking for. We will search verified imports and dealers across Ghana.
+                  Tell us what you are looking for and our team will get back to you with options.
                 </p>
               </div>
 
@@ -131,9 +118,9 @@ export function FinalCTA() {
                 <div className="p-3 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
                   <CheckCircle className="w-8 h-8" />
                 </div>
-                <h4 className="text-base font-bold text-white">Sourcing Request Sent!</h4>
+                <h4 className="text-base font-bold text-white">Request Prepared!</h4>
                 <p className="text-xs text-neutral-300 max-w-sm leading-relaxed">
-                  Your request for <strong className="text-white">{formData.makeModel}</strong> has been prepared and opened in WhatsApp. Our sourcing specialist will review availability and contact you shortly.
+                  Your request for <strong className="text-white">{formData.makeModel}</strong> has been opened in WhatsApp. Our team will review availability and message you shortly.
                 </p>
                 <button
                   type="button"
@@ -159,8 +146,8 @@ export function FinalCTA() {
                     required
                     value={formData.makeModel}
                     onChange={(e) => setFormData({ ...formData, makeModel: e.target.value })}
-                    placeholder="e.g. 2023 Toyota Prado TX-L or Mercedes GLE 450"
-                    className="w-full h-10 px-3.5 rounded-xl solid-input text-xs bg-neutral-900 border border-neutral-800 focus:border-neutral-600 text-white"
+                    placeholder="e.g. 2022 Toyota Prado TX-L or Mercedes GLE 450"
+                    className="w-full h-10 px-3.5 rounded-xl text-xs bg-neutral-900 border border-neutral-800 focus:border-neutral-600 text-white"
                   />
                 </div>
 
@@ -199,21 +186,21 @@ export function FinalCTA() {
                       value={formData.preferredYear}
                       onChange={(e) => setFormData({ ...formData, preferredYear: e.target.value })}
                       placeholder="e.g. 2021 - 2024"
-                      className="w-full h-10 px-3.5 rounded-xl solid-input text-xs bg-neutral-900 border border-neutral-800 focus:border-neutral-600 text-white"
+                      className="w-full h-10 px-3.5 rounded-xl text-xs bg-neutral-900 border border-neutral-800 focus:border-neutral-600 text-white"
                     />
                   </div>
 
                   <div className="flex flex-col gap-1.5">
                     <label className="text-xs font-medium text-neutral-300 flex items-center gap-1.5">
                       <Wallet className="w-3.5 h-3.5 text-neutral-400" />
-                      <span>Target Budget (GH₵)</span>
+                      <span>Budget (GH₵)</span>
                     </label>
                     <input
                       type="text"
                       value={formData.budgetGHS}
                       onChange={(e) => setFormData({ ...formData, budgetGHS: e.target.value })}
                       placeholder="e.g. 450,000"
-                      className="w-full h-10 px-3.5 rounded-xl solid-input text-xs bg-neutral-900 border border-neutral-800 focus:border-neutral-600 text-white"
+                      className="w-full h-10 px-3.5 rounded-xl text-xs bg-neutral-900 border border-neutral-800 focus:border-neutral-600 text-white"
                     />
                   </div>
                 </div>
@@ -223,7 +210,7 @@ export function FinalCTA() {
                   <div className="flex flex-col gap-1.5">
                     <label className="text-xs font-medium text-neutral-300 flex items-center gap-1.5">
                       <User className="w-3.5 h-3.5 text-neutral-400" />
-                      <span>Your Full Name</span>
+                      <span>Your Name</span>
                     </label>
                     <input
                       type="text"
@@ -231,14 +218,14 @@ export function FinalCTA() {
                       value={formData.fullName}
                       onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                       placeholder="e.g. Kwame Mensah"
-                      className="w-full h-10 px-3.5 rounded-xl solid-input text-xs bg-neutral-900 border border-neutral-800 focus:border-neutral-600 text-white"
+                      className="w-full h-10 px-3.5 rounded-xl text-xs bg-neutral-900 border border-neutral-800 focus:border-neutral-600 text-white"
                     />
                   </div>
 
                   <div className="flex flex-col gap-1.5">
                     <label className="text-xs font-medium text-neutral-300 flex items-center gap-1.5">
                       <Phone className="w-3.5 h-3.5 text-neutral-400" />
-                      <span>WhatsApp Number</span>
+                      <span>Phone / WhatsApp</span>
                     </label>
                     <input
                       type="tel"
@@ -246,7 +233,7 @@ export function FinalCTA() {
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       placeholder="e.g. 055 988 8003"
-                      className="w-full h-10 px-3.5 rounded-xl solid-input text-xs bg-neutral-900 border border-neutral-800 focus:border-neutral-600 text-white"
+                      className="w-full h-10 px-3.5 rounded-xl text-xs bg-neutral-900 border border-neutral-800 focus:border-neutral-600 text-white"
                     />
                   </div>
                 </div>
@@ -255,14 +242,11 @@ export function FinalCTA() {
                 <div className="pt-2">
                   <button
                     type="submit"
-                    className="w-full h-11 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs flex items-center justify-center gap-2 transition-colors shadow-sm cursor-pointer"
+                    className="w-full h-11 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 transition-colors shadow-sm cursor-pointer"
                   >
                     <MessageSquare className="w-4 h-4" />
-                    <span>Send Sourcing Request via WhatsApp</span>
+                    <span>Send Request via WhatsApp</span>
                   </button>
-                  <p className="text-[11px] text-neutral-500 text-center mt-2">
-                    Direct connection to our Accra vehicle sourcing desk &bull; No middleman fees
-                  </p>
                 </div>
               </form>
             )}

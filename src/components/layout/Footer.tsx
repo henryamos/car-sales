@@ -24,7 +24,7 @@ export function Footer() {
               </span>
             </Link>
             <p className="text-xs sm:text-sm text-neutral-400 leading-relaxed max-w-sm">
-              AutoGhana is Ghana&apos;s verified automotive marketplace, connecting car buyers with authentic Brand New, Foreign Used, and Ghana Used vehicles with zero phantom listings and direct Ghana Cedis pricing.
+              Discover brand-new, foreign-used and Ghana-used cars with clear prices in Ghana Cedis. Schedule a viewing or speak directly with our team.
             </p>
             <div className="pt-2">
               <a
@@ -34,7 +34,7 @@ export function Footer() {
                 className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-emerald-950/40 border border-emerald-800/50 text-emerald-400 hover:text-emerald-300 text-xs font-medium transition-colors"
               >
                 <MessageSquare className="w-3.5 h-3.5" />
-                <span>Chat with our Accra Desk</span>
+                <span>Chat with our team</span>
               </a>
             </div>
           </div>
