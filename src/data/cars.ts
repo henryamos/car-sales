@@ -149,7 +149,7 @@ export const CARS_DATA: Car[] = [
     condition: "Foreign Used",
     featured: true,
     images: [
-          "/images/cars/prado-1.jpg",
+          "/images/cars/prado-txl-1.jpg",
           "/images/cars/prado-2.jpg"
     ],
     vin: "JTEBX3FJ8MK091823",

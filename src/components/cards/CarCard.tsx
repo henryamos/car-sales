@@ -133,28 +133,13 @@ export function CarCard({ car }: CarCardProps) {
             {car.trim}
           </p>
 
-          {/* 3. Key Specifications */}
-          <div className="grid grid-cols-3 gap-2 pt-2.5">
-            <div className="px-2 py-1.5 rounded-lg bg-[#181818] border border-[#262626] flex items-center justify-center gap-1.5 truncate">
-              <Gauge className="w-3 h-3 text-neutral-400 shrink-0" />
-              <span className="text-xs font-medium text-neutral-200 truncate">
-                {car.mileageKm === 0 ? "0 km" : `${formatNumber(car.mileageKm)} km`}
-              </span>
-            </div>
-
-            <div className="px-2 py-1.5 rounded-lg bg-[#181818] border border-[#262626] flex items-center justify-center gap-1.5 truncate">
-              <Fuel className="w-3 h-3 text-neutral-400 shrink-0" />
-              <span className="text-xs font-medium text-neutral-200 truncate">
-                {car.fuelType}
-              </span>
-            </div>
-
-            <div className="px-2 py-1.5 rounded-lg bg-[#181818] border border-[#262626] flex items-center justify-center gap-1.5 truncate">
-              <Cog className="w-3 h-3 text-neutral-400 shrink-0" />
-              <span className="text-xs font-medium text-neutral-200 truncate">
-                {car.transmission}
-              </span>
-            </div>
+          {/* 3. Key Specifications: Single horizontal row with subtle separators */}
+          <div className="flex items-center gap-2 pt-1.5 text-xs text-neutral-300 font-medium">
+            <span>{car.mileageKm === 0 ? "0 km" : `${formatNumber(car.mileageKm)} km`}</span>
+            <span className="text-neutral-600">&bull;</span>
+            <span>{car.fuelType}</span>
+            <span className="text-neutral-600">&bull;</span>
+            <span>{car.transmission}</span>
           </div>
         </div>
 
